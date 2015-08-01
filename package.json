@@ -1,0 +1,19 @@
+{
+  "name": "gulp-html-text-wrapper",
+  "version": "0.0.1",
+  "description": "Creates an object with a text property containing a minified html string to be used in cross domain jsonp requests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "micahblu",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:micahblu/gulp-require-text-wrapper.git"
+  },
+  "dependencies": {
+    "through2": "~2.0.0",
+    "gulp-util": "~3.0.6"
+  }
+}
