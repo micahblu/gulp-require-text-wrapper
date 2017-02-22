@@ -12,23 +12,12 @@ function prefixStream(prefixText) {
   return stream;
 }
 
-// Plugin level function(dealing with files)
 function gulpRequireTextWrapper(prefixText) {
-
-
   // Creating a stream through which each file will pass
   return through.obj(function(file, enc, cb) {
     if (file.isNull()) {
       // return empty file
       return cb(null, file);
-    }
-    if (file.isBuffer()) {
-      //file.contents = Buffer.concat([prefixText, file.contents]);
-      console.log('isBuffer');
-    }
-    if (file.isStream()) {
-      //file.contents = file.contents.pipe(prefixStream(prefixText));
-      console.log('isStream');
     }
 
     // convert to string from buffer
@@ -44,15 +33,12 @@ function gulpRequireTextWrapper(prefixText) {
     contents = "define(function() { return { text: '" + contents + "' }; });";
 
     // back to buffer
-    contents = contents.toString('binary');
-    contents = new Buffer(contents, "binary");
+    contents = Buffer.from(contents, 'utf8');
 
     file.contents = contents;
 
     cb(null, file);
-
   });
-
 }
 
 // Exporting the plugin main function
